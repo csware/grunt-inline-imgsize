@@ -45,6 +45,13 @@ Default value: `'utf8'`
 
 The encoding of the file contents.
 
+#### options.root
+Type: `String`
+Default value: `''`
+
+If you reference images with an absolute path, this is the root where to look for these images.
+If all images are referenced relatively this option is not needed.
+
 ### Usage Examples
 
 #### Basic Image Size Inlining
@@ -65,6 +72,7 @@ grunt.initConfig({
 grunt.initConfig({
   inlineImgSize: {
     options: {
+      root: 'dest/'
     },
     files: [{
       expand: true,

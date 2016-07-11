@@ -61,6 +61,9 @@ module.exports = function(grunt) {
 
                     var src = tag.match(regexes.src)[1];
                     var imgpath = path.replace(/[^\/]+$/, '') + src;
+                    if (!grunt.file.exists(imgpath) && options.root) {
+                        imgpath = options.root + src;
+                    }
                     var dimensions = get_image_dimensions(fs.readFileSync(imgpath));
                     if (!dimensions) {
                         return;
